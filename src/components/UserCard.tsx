@@ -2,9 +2,8 @@ import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import Typography from '@mui/material/Typography';
 import CardContent from '@mui/material/CardContent';
-import {GetRole} from '@/types/user';
 
-export default function UserCard({username, role}:{username: string, role: number}) {
+export default function UserCard({username, email}:{username: string, email: string}) {
 
     const card = (
           <CardContent>
@@ -12,7 +11,7 @@ export default function UserCard({username, role}:{username: string, role: numbe
                {username}
             </Typography>
             <Typography sx={{ color: 'text.secondary', mb: 1.5 }}>
-               {GetRole(role)}
+               {email}
             </Typography>
           </CardContent>
       );

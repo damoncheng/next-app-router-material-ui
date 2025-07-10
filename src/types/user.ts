@@ -1,36 +1,33 @@
-import axios, { AxiosError } from 'axios';
+import api from '@/libs/api';
+import {LoginCredentials, LoginResponse} from '@/types/auth';
+
+interface Group {
+    url: string
+}
 
 export interface User {
     id: number;
-    name: string;
-    role: number;
+    username: string;
+    url: string;
+    email: string;
+    group: Array<Group>;
   }
   
 export interface CreateUserDto {
-    name: string;
-    role: number;
+    username: string;
+    url: string;
+    email: string;
 }
 
-export function GetRole(role: number) : string{
+export const UserLogin = async(credentials : LoginCredentials): Promise<LoginResponse> => {
 
-    switch(role){
+    const response = await api.post<LoginResponse>('/login/', credentials);
 
-        case 1:
-            return "Front Developer"
-        case 2:
-            return "Backend Developer"
-        case 3:
-            return "Test Developer"
+    return response.data;
 
-    }
-
-    return "UnKnown"
 }
 
 export const FetchUsers = async () : Promise<User[]> => {
-    const response = await fetch('/api/users');
-    if (!response.ok) {
-        throw new Error('Failed to fetch users');
-    }
-    return await response.json();
+    const response = await api.get('/users/');
+    return response.data;
 };

@@ -20,9 +20,9 @@ export default function HeadBar() {
 
     const pathname = usePathname();
     const pages = {
-      "/": "Home",
-      "/users" : "Users",
-      "/flows" : "Flows"
+      "/dashboard/": "Dashboard",
+      "/dashboard/users/" : "Users",
+      "/dashboard/flows/" : "Flows"
     }
     const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 

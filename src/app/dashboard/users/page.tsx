@@ -9,7 +9,7 @@ import Box from '@mui/material/Box';
 export default function HomeBody() {
 
     const [users, setUsers] = useState<User[]>([]);
-    const [newUser, setNewUser] = useState({ name: '', role: '' });
+    const [newUser, setNewUser] = useState({ name: '', email: '' });
   
     // Fetch users
     useEffect(() => {
@@ -29,8 +29,8 @@ export default function HomeBody() {
             <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }} sx={{ marginTop: '20px', borderRadius: '16px' }}>
                 {users.map(
                     user => (
-                        <Grid key={user.id}  size={{ xs: 2, sm: 4, md: 3 }} >
-                            <UserCard username={user.name} role={user.role} />
+                        <Grid key={user.username}  size={{ xs: 2, sm: 4, md: 3 }} >
+                            <UserCard username={user.username} email={user.email} />
                         </Grid>
                     )
                 )}
