@@ -8,10 +8,12 @@ echo "#=======start docker build"
 docker build -t next-front .
 echo "#=======complete docker build"
 
-echo "#=======start stop next-front"
+echo "#=======start stop and rm next-front"
 docker stop next-front
-sleep 1
-echo "#=======complete stop next-front"
+sleep 2
+docker rm next-front
+sleep 2
+echo "#=======complete stop and rm next-front"
 
 echo "#=======start run next-front"
 docker run --name=next-front  --network=my-network --restart=always  -d next-front:latest
