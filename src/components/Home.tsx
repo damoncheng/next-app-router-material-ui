@@ -19,7 +19,12 @@ export default function Home() {
         }
     }, [router]);
     return (
-        <Box sx={{ display: 'flex' }}>
+        <Box sx={{ 
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            height: '100vh', // 使其垂直居中
+         }}>
             <CircularProgress />
         </Box>
     );
