@@ -9,8 +9,8 @@ const nextConfig: NextConfig = {
       // 开发环境代理
       fallback: [
         {
-          source: `${process.env.PROXY_SOURCE_PATH}/:params/`,
-          destination: `${process.env.PROXY_DESTINATION_PATH}/:params/`, // 后端地址
+          source: `${process.env.NEXT_PUBLIC_PROXY_SOURCE_PATH}/:params/`,
+          destination: `${process.env.NEXT_PUBLIC_PROXY_DESTINATION_PATH}/:params/`, // 后端地址
         },
       ]
     }
