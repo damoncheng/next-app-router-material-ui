@@ -42,9 +42,8 @@ export default function Login() {
       } catch (err) {
         setError('登录失败，请检查用户名和密码');
         console.error('Login error:', err);
-      } finally {
         setLoading(false);
-      }
+      } 
     };
 
     return (
