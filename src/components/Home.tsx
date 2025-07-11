@@ -3,6 +3,9 @@ import React, { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { Container, Typography, Button } from '@mui/material';
 import { getCurrentUser, isAuthenticated, logout } from '@/libs/storage';
+import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
+
 
 export default function Home() {
     const router = useRouter();
@@ -16,8 +19,8 @@ export default function Home() {
         }
     }, [router]);
     return (
-      <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-          Home
-      </div>
+        <Box sx={{ display: 'flex' }}>
+            <CircularProgress />
+        </Box>
     );
   }
